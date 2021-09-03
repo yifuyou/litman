@@ -253,7 +253,7 @@ public class RequestTestActivity extends AppCompatActivity {
             case R.id.b1:
                 currColor = Color.GREEN;
 //                getData();
-//                getDataByRetrofit();
+                getDataByRetrofit();
 
 //                RxJavaUtil.create();
 //                RxJavaUtil.addObserver();
