@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "litman"
 include ':app'
+include ':app:httpcompack'
