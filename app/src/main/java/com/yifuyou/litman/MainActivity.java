@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity{
                 startActivity(new Intent(this, RecyclerActivity.class));
                 break;
             case R.id.button4:
-//                startActivity(new Intent(this, Ac.class));
+                startActivity(new Intent(this, HttpCallActivity.class));
             default:break;
         }
 
