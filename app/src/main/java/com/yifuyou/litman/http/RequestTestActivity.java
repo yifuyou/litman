@@ -195,7 +195,7 @@ public class RequestTestActivity extends AppCompatActivity {
                         System.out.println(response.errorBody().string());
                         System.out.println(call.request());
                     }else{
-                        System.out.println(response.body().source());
+                        System.out.println(response.body().string());
                     }
                     System.out.println("============");
 
