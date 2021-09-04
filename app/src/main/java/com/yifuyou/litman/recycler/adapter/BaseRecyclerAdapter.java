@@ -1,4 +1,4 @@
-package com.yifuyou.litman.recycler;
+package com.yifuyou.litman.recycler.adapter;
 
 import android.annotation.SuppressLint;
 import android.util.SparseArray;
@@ -14,7 +14,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yifuyou.litman.R;
-import com.yifuyou.litman.databinding.RvItemBinding;
+import com.yifuyou.litman.recycler.BaseHolder;
 import com.yifuyou.litman.recycler.holder.Holder1;
 import com.yifuyou.litman.recycler.holder.Holder2;
 

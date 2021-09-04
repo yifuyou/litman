@@ -13,26 +13,31 @@ import com.yifuyou.litman.recycler.RecyclerActivity;
 
 public class MainActivity extends AppCompatActivity{
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
     }
 
-    public void OnClick(View view){
+    public void activityChoose(View view){
         switch (view.getId()){
             case R.id.button_1:
                 startActivity(new Intent(this, RequestTestActivity.class));
                 break;
             case R.id.button2:
+                System.out.println("======click fail!==========");
                 startActivity(new Intent(this, VMActivity.class));
                 break;
             case R.id.button3:
+                System.out.println("======click fail!==========");
                 startActivity(new Intent(this, RecyclerActivity.class));
                 break;
             case R.id.button4:
 //                startActivity(new Intent(this, Ac.class));
-            default:break;
+            default:
+                System.out.println("======click fail!==========");
+                break;
         }
+
 
 
     }

@@ -1,14 +1,11 @@
 package com.yifuyou.litman.recycler;
 
-import android.util.Log;
-
 import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.MediatorLiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.yifuyou.litman.recycler.adapter.BaseRecyclerAdapter;
 
 public class VMRecycler extends ViewModel {
     private RecyclerView recyclerView;
