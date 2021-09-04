@@ -25,7 +25,7 @@ public class TempProxy  {
          server = retrofit.create(HttpServer.class);
     }
 
-    public CommonResult<String> request() throws IOException {
+    /*public CommonResult<String> request() throws IOException {
         Call<CommonResult<String>> call = server.request();
         Response<CommonResult<String>> response = call.execute();
         return response.body();
@@ -43,5 +43,5 @@ public class TempProxy  {
 
     public Call<CommonResult> postRequest(String path, Map<String, Object> objectMap) {
         return null;
-    }
+    }*/
 }

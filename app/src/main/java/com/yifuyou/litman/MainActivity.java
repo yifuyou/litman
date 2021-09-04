@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity{
                 break;
             case R.id.button4:
                 startActivity(new Intent(this, HttpCallActivity.class));
+                break;
             default:
                 System.out.println("======click fail!==========");
                 break;

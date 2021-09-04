@@ -24,6 +24,7 @@ public class HttpCallActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.http_call_layout);
         binding = DataBindingUtil.setContentView(this, R.layout.http_call_layout);
 
     }

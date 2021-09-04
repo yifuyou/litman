@@ -2,19 +2,26 @@ package com.yifuyou.httpcompack.common;
 
 import android.util.Log;
 
+import com.yifuyou.httpcompack.proxy.HttpProxy;
 import com.yifuyou.httpcompack.proxy.TempProxy;
+import com.yifuyou.httpcompack.server.HttpServer;
+
+import org.json.JSONException;
 
 import java.io.IOException;
 
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Response;
 
 
 public class CommonRequest  {
     private ObserverUtil observerUtil;
     private static CommonRequest instance;
-    private CommonResult result;
+    private CommonResult<String> result;
 
     private CommonRequest(){
         observerUtil=new ObserverUtil();
@@ -43,14 +50,17 @@ public class CommonRequest  {
      * @return
      */
     public void doRequest(String url, String type ,String...org){
-        TempProxy tempProxy=new TempProxy();
-
 
         newThreadRun(()->{
+            result=new CommonResult<>();
             try {
-                result = tempProxy.request();
-                System.out.println(result);
-            } catch (IOException e) {
+                Call<ResponseBody> request = HttpProxy.getHttpService(HttpServer.class).request();
+                Response<ResponseBody> response = request.execute();
+
+                //返回参数判断。。。
+
+                result.purse(response);
+            } catch (IOException | JSONException e) {
                 e.printStackTrace();
             }
 

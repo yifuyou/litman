@@ -4,9 +4,11 @@ import android.os.Bundle;
 
 import com.yifuyou.httpcompack.common.CommonResult;
 import com.yifuyou.httpcompack.common.CommonString;
+import com.yifuyou.httpcompack.proxy.HttpProxy;
 
 import java.util.Map;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.FieldMap;
 import retrofit2.http.GET;
@@ -16,14 +18,16 @@ import retrofit2.http.Path;
 
 public interface HttpServer {
 
-
+    static HttpServer getInstance(){
+        return HttpProxy.getHttpService(HttpServer.class);
+    }
 
     @GET("/{path}")
-    Call<CommonResult<String>> getRequest(@Path("path")String path,String args);
+    Call<ResponseBody> getRequest(@Path("path")String path, String args);
 
     @POST("/{path}")
-    Call<CommonResult<String>> postRequest(@Path("path")String path, @FieldMap Map<String,Object> objectMap);
+    Call<ResponseBody> postRequest(@Path("path")String path, @FieldMap Map<String,Object> objectMap);
 
     @HTTP(path = CommonString.TEST_URL,method = "GET")
-    Call<CommonResult<String>> request();
+    Call<ResponseBody> request();
 }
