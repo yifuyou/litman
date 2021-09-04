@@ -21,7 +21,7 @@ import com.yifuyou.litman.R;
 public class RecyclerActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_layout);
         VMRecycler vm= new ViewModelProvider(this).get(VMRecycler.class);
