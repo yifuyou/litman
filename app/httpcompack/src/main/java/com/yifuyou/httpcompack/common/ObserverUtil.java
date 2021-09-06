@@ -13,28 +13,28 @@ import io.reactivex.rxjava3.disposables.Disposable;
 
 public class ObserverUtil<T> {
     static int count;
-    List<Observer<CommonResult<T>>> observers;
-    Observable<CommonResult<T>> observable;
+    List<Observer<T>> observers;
+    Observable<T> observable;
 
     public ObserverUtil(){
         observers=new ObservableArrayList<>();
     }
 
 
-    public void addObserver(Observer<CommonResult<T>> observer){
+    public void addObserver(Observer<T> observer){
         observers.add(observer);
     }
 
-    public void setObservable(Observable<CommonResult<T>> observable) {
+    public void setObservable(Observable<T> observable) {
         this.observable = observable;
     }
 
-    public Observable<CommonResult<T>> getObservable() {
+    public Observable<T> getObservable() {
         return observable;
     }
 
     private void configObservable(){
-        for (Observer<CommonResult<T>> observer : observers) {
+        for (Observer<T> observer : observers) {
             observable.subscribe(observer);
         }
     }
@@ -44,7 +44,7 @@ public class ObserverUtil<T> {
     }
 
     private void destroy(){
-        for (Observer<CommonResult<T>> observer : observers) {
+        for (Observer<T> observer : observers) {
             observer.onComplete();
         }
         observers=null;

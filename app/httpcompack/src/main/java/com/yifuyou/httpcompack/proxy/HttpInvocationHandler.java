@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -20,6 +21,7 @@ public class HttpInvocationHandler<T> implements InvocationHandler{
         Retrofit retrofit=new Retrofit.Builder()
                 .baseUrl(CommonString.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
 
         instance = retrofit.create(cls);

@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.yifuyou.httpcompack.common.CommonRequest;
 import com.yifuyou.httpcompack.common.CommonResult;
+import com.yifuyou.httpcompack.common.Weather;
 import com.yifuyou.litman.databinding.HttpCallLayoutBinding;
 
 import java.util.HashMap;
@@ -34,14 +35,14 @@ public class HttpCallActivity extends AppCompatActivity {
         Map<String, String> map=new HashMap<>();
         if(view.getId()==binding.button6.getId()){
             CommonRequest commonRequest=CommonRequest.getInstance();
-            commonRequest.addObserver(new Observer<CommonResult<String>>() {
+            commonRequest.addObserver(new Observer<Weather>() {
                 @Override
                 public void onSubscribe(@NonNull Disposable d) {
                     System.out.println("======onSubscribe===");
                 }
 
                 @Override
-                public void onNext(@NonNull CommonResult commonResult) {
+                public void onNext(@NonNull Weather commonResult) {
                     System.out.println("=====onNext========");
                     binding.textViewK.post(()->{
                         binding.textViewK.setText(commonResult.toString());
@@ -53,6 +54,7 @@ public class HttpCallActivity extends AppCompatActivity {
                 @Override
                 public void onError(@NonNull Throwable e) {
                     System.out.println("=====onError========");
+                    e.printStackTrace();
 
                 }
 

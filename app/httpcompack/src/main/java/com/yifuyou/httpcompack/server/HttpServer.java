@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.yifuyou.httpcompack.common.CommonResult;
 import com.yifuyou.httpcompack.common.CommonString;
+import com.yifuyou.httpcompack.common.Weather;
 import com.yifuyou.httpcompack.proxy.HttpProxy;
 
 import java.util.Map;
@@ -34,5 +35,5 @@ public interface HttpServer {
 
 
     @HTTP(path = CommonString.TEST_URL,method = "GET")
-    Observable<ResponseBody> requestObservable();
+    Observable<Weather> requestObservable();
 }
