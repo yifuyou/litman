@@ -1,7 +1,12 @@
 package com.yifuyou.httpcompack.proxy;
 
+import com.yifuyou.httpcompack.common.CommonString;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * 网络代理实现类
@@ -10,11 +15,14 @@ import java.lang.reflect.Method;
 public class HttpInvocationHandler<T> implements InvocationHandler{
 
     private  T instance;
-    public void setObjectClass(T service){
-        if(service!=null){
-            instance = service;
-        }
 
+    public HttpInvocationHandler(Class<T> cls){
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl(CommonString.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        instance = retrofit.create(cls);
     }
 
     //代理类 通过 反射实现具体方法

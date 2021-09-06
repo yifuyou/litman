@@ -8,6 +8,7 @@ import com.yifuyou.httpcompack.proxy.HttpProxy;
 
 import java.util.Map;
 
+import io.reactivex.rxjava3.core.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.FieldMap;
@@ -30,4 +31,8 @@ public interface HttpServer {
 
     @HTTP(path = CommonString.TEST_URL,method = "GET")
     Call<ResponseBody> request();
+
+
+    @HTTP(path = CommonString.TEST_URL,method = "GET")
+    Observable<ResponseBody> requestObservable();
 }

@@ -54,13 +54,17 @@ public class CommonRequest  {
         newThreadRun(()->{
             result=new CommonResult<>();
             try {
-                Call<ResponseBody> request = HttpProxy.getHttpService(HttpServer.class).request();
-                Response<ResponseBody> response = request.execute();
+//                Call<ResponseBody> request = HttpProxy.getHttpService(HttpServer.class).request();
+//                Response<ResponseBody> response = request.execute();
+                Observable<ResponseBody> observable = HttpProxy.getHttpService(HttpServer.class).requestObservable();
+                observerUtil.setObservable(observable);
 
                 //返回参数判断。。。
 
-                result.purse(response);
-            } catch (IOException | JSONException e) {
+//                result.purse(response);
+//            } catch (IOException | JSONException e) {
+//                e.printStackTrace();
+            }catch (Exception e){
                 e.printStackTrace();
             }
 
