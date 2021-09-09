@@ -25,8 +25,8 @@
         <activity android:name=".http.RequestTestActivity">
         </activity>
         <activity android:name=".HttpCallActivity">
-
         </activity>
+        <activity android:name=".recycler2.RVActivity"/>
     </application>
 
 </manifest>

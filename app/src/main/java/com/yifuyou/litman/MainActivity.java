@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.yifuyou.litman.http.RequestTestActivity;
 import com.yifuyou.litman.recycler.RecyclerActivity;
+import com.yifuyou.litman.recycler2.RVActivity;
 
 public class MainActivity extends AppCompatActivity{
     @Override
@@ -24,15 +25,16 @@ public class MainActivity extends AppCompatActivity{
                 startActivity(new Intent(this, RequestTestActivity.class));
                 break;
             case R.id.button2:
-                System.out.println("======click fail!==========");
                 startActivity(new Intent(this, VMActivity.class));
                 break;
             case R.id.button3:
-                System.out.println("======click fail!==========");
                 startActivity(new Intent(this, RecyclerActivity.class));
                 break;
             case R.id.button4:
                 startActivity(new Intent(this, HttpCallActivity.class));
+                break;
+            case R.id.button5:
+                startActivity(new Intent(this, RVActivity.class));
                 break;
             default:
                 System.out.println("======click fail!==========");

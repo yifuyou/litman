@@ -13,9 +13,9 @@ import okhttp3.ResponseBody;
 import retrofit2.Response;
 
 public class CommonResult<T>   {
-    public static final String CODE="code";
-    public static final String MSG="message";
-    public static final String DATA="data";
+    private static final String CODE="code";
+    private static final String MSG="message";
+    private static final String DATA="data";
 
     int code;
     String message;
@@ -38,8 +38,8 @@ public class CommonResult<T>   {
         this.data = data;
     }
 
-public static final String TAG_1="reason";
-    public static final String TAG_2="result";
+    private static final String TAG_1="reason";
+    private static final String TAG_2="result";
 
     public void purse(Response<ResponseBody> response) throws JSONException, IOException {
         if(response==null)return;

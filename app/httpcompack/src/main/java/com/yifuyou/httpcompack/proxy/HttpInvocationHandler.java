@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class HttpInvocationHandler<T> implements InvocationHandler{
 
-    private  T instance;
+     T instance;
 
     public HttpInvocationHandler(Class<T> cls){
         Retrofit retrofit=new Retrofit.Builder()
@@ -24,7 +24,7 @@ public class HttpInvocationHandler<T> implements InvocationHandler{
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
 
-        instance = retrofit.create(cls);
+        this.instance = retrofit.create(cls);
     }
 
     //代理类 通过 反射实现具体方法
