@@ -19,6 +19,8 @@ public abstract class BaseRVAdapter<DATA,VH extends BaseViewHolder> extends Recy
     public abstract int getLayoutId();
 
     public abstract VH createHolder( View view);
+    public abstract View.OnClickListener clickListener(VH holder);
+
 
     public BaseRVAdapter(){
         data=new ArrayList<>();
@@ -35,16 +37,26 @@ public abstract class BaseRVAdapter<DATA,VH extends BaseViewHolder> extends Recy
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(getLayoutId(), parent, false);
-        return  createHolder(view) ;
+        return createHolder(view) ;
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
         holder.onBindViewHolder(data.get(position));
+        holder.itemView.setOnClickListener(clickListener(holder));
     }
 
     @Override
     public int getItemCount() {
         return data.size();
     }
+
+    public DATA getItemByIndex(int position){
+        if(position<data.size()){
+            return data.get(position);
+        }
+        return null;
+    }
+
 }

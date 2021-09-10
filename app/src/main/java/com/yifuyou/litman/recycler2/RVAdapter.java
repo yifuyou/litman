@@ -1,14 +1,17 @@
 package com.yifuyou.litman.recycler2;
 
+
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.yifuyou.litman.R;
 import com.yifuyou.litman.recycler2.base.BaseRVAdapter;
-import com.yifuyou.litman.recycler2.holder.DefaulHolder;
+import com.yifuyou.litman.recycler2.holder.DefaultHolder;
 
 import java.util.ArrayList;
 
-public class RVAdapter extends BaseRVAdapter<String, DefaulHolder> {
+public class RVAdapter extends BaseRVAdapter<String, DefaultHolder> {
     private static boolean first=false;
 
     @Override
@@ -19,13 +22,14 @@ public class RVAdapter extends BaseRVAdapter<String, DefaulHolder> {
     @Override
     public void initData() {
         ArrayList<String> list=new ArrayList<>();
+        int count=40;
         if(!first){
-            for (int i=0;i<10;i++){
+            for (int i=0;i<count;i++){
                 list.add("text__ "+i);
             }
             first=!first;
         }else {
-            for (int i=0;i<20;i+=2){
+            for (int i=0;i<count*2;i+=2){
                 list.add("text__ "+i);
             }
         }
@@ -33,9 +37,25 @@ public class RVAdapter extends BaseRVAdapter<String, DefaulHolder> {
     }
 
     @Override
-    public DefaulHolder createHolder(View view) {
-        DefaulHolder viewHolder = new DefaulHolder(view);
-        return viewHolder;
+    public DefaultHolder createHolder(View view) {
+
+        return  new DefaultHolder(view);
+    }
+
+    @Override
+    public View.OnClickListener clickListener(DefaultHolder holder) {
+        return (view -> {
+            CharSequence text = holder.binding.itemText.getText();
+            
+
+            holder.binding.itemText.setText(text.toString().trim()+"+1");
+        });
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull DefaultHolder holder,  int position) {
+        super.onBindViewHolder(holder, position);
+
     }
 
 

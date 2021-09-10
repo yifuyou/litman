@@ -8,10 +8,10 @@ import androidx.databinding.DataBindingUtil;
 import com.yifuyou.litman.databinding.Rv2LayoutItemBinding;
 import com.yifuyou.litman.recycler2.base.BaseViewHolder;
 
-public class DefaulHolder extends BaseViewHolder<String, Rv2LayoutItemBinding> {
+public class DefaultHolder extends BaseViewHolder<String, Rv2LayoutItemBinding> {
 
 
-    public DefaulHolder(@NonNull View itemView) {
+    public DefaultHolder(@NonNull View itemView) {
         super(itemView, DataBindingUtil.bind(itemView.getRootView()));
     }
 
