@@ -46,9 +46,8 @@ public class RVAdapter extends BaseRVAdapter<String, DefaultHolder> {
     public View.OnClickListener clickListener(DefaultHolder holder) {
         return (view -> {
             CharSequence text = holder.binding.itemText.getText();
-            
-
-            holder.binding.itemText.setText(text.toString().trim()+"+1");
+            text=text.toString().trim()+"+1";
+            holder.binding.itemText.setText(text);
         });
     }
 

@@ -2,6 +2,7 @@ package com.yifuyou.litman;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -72,5 +73,15 @@ public class HttpCallActivity extends AppCompatActivity {
         if(map.isEmpty())return;
         System.out.println("==========");
         map.forEach((k,v)-> System.out.println(k+"  "+v));
+        Toast.makeText(this, buildStringByMap(map), Toast.LENGTH_SHORT).show();
     }
+
+    private String buildStringByMap(Map<String,String>map){
+        StringBuilder builder=new StringBuilder("{");
+        map.forEach((k,v)->{
+            builder.append(k).append(": ").append(v).append(", ");
+        });
+        return builder.append("} ").toString();
+    }
+
 }

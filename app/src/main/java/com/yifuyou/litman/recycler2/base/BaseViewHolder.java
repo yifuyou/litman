@@ -17,5 +17,5 @@ public abstract class BaseViewHolder<DATA,DB extends ViewDataBinding> extends Re
 
     public abstract void setData(DATA data);
 
-    public abstract void onBindViewHolder(DATA data);
+    public abstract void onBind(DATA data);
 }

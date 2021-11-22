@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yifuyou.litman.recycler2.base.BaseViewHolder;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +41,7 @@ public abstract class BaseRVAdapter<DATA,VH extends BaseViewHolder> extends Recy
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-        holder.onBindViewHolder(data.get(position));
+        holder.onBind(data.get(position));
         holder.itemView.setOnClickListener(clickListener(holder));
     }
 

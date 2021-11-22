@@ -21,7 +21,7 @@ public class DefaultHolder extends BaseViewHolder<String, Rv2LayoutItemBinding> 
     }
 
     @Override
-    public void onBindViewHolder(String s) {
+    public void onBind(String s) {
         setData(s);
     }
 }

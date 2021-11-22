@@ -1,5 +1,6 @@
 package com.yifuyou.litman.http;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,7 +43,7 @@ public class RequestTestActivity extends AppCompatActivity {
 
     OkHttpClient httpClient = new OkHttpClient();
 
-    Handler handler = new Handler() {
+    Handler handler = new Handler(getMainLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
@@ -248,6 +249,7 @@ public class RequestTestActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void onclick(View view) {
         switch (view.getId()) {
             case R.id.b1:

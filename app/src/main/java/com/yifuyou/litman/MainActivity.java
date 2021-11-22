@@ -1,6 +1,7 @@
 package com.yifuyou.litman;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.main_layout);
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void activityChoose(View view){
         switch (view.getId()){
             case R.id.button_1:

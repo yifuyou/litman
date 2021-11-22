@@ -16,7 +16,7 @@
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="VMext"
         android:onClick="activityChoose"
         />
 
@@ -24,7 +24,7 @@
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Recycler"
         android:onClick="activityChoose"/>
 
     <Button
@@ -38,7 +38,7 @@
         android:id="@+id/button5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Recycler"
         android:onClick="activityChoose" />
 
 </LinearLayout>
